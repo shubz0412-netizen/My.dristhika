@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dristhika 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Comic Sans MS', 'Poppins', cursive;
+      background: linear-gradient(135deg, #ffd1dc, #ffb6c1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 28px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+      max-width: 370px;
+      z-index: 2;
+    }
+
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #444;
+      font-size: 17px;
+      line-height: 1.5;
+    }
+
+    img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #ff4d6d;
+      margin: 18px 0;
+    }
+
+    h2 {
+      color: #ff4d6d;
+      margin-top: 10px;
+    }
+
+    .buttons {
+      margin-top: 25px;
+      position: relative;
+      height: 90px;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 22px;
+      cursor: pointer;
+      position: absolute;
+    }
+
+    #yes {
+      background: #ff4d6d;
+      color: white;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #no {
+      background: #d3d3d3;
+      color: #333;
+      left: 15%;
+      top: 45px;
+    }
+
+    .floating {
+      position: absolute;
+      font-size: 26px;
+      animation: float 10s linear infinite;
+      opacity: 0.85;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(110vh) rotate(0deg);
+      }
+      to {
+        transform: translateY(-15vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating hearts & avocados -->
+  <script>
+    const emojis = ["❤️", "🥑", "💖", "💕", "🥑"];
+    for (let i = 0; i < 24; i++) {
+      const span = document.createElement("span");
+      span.className = "floating";
+      span.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      span.style.left = Math.random() * 100 + "vw";
+      span.style.animationDuration = 6 + Math.random() * 6 + "s";
+      span.style.fontSize = 20 + Math.random() * 26 + "px";
+      document.body.appendChild(span);
+    }
+  </script>
+
+  <div class="card">
+    <h1>Dristhika 💕</h1>
+
+    <p>
+      You make my world softer, happier, and a lot more pink 💗  
+      <br><br>
+      I love you more than avocados 🥑 and that says a LOT.  
+      <br><br>
+      You are my Hello Kitty 🐱🎀
+    </p>
+
+    <!-- Her picture -->
+    <img src="her-photo.jpg" alt="Dristhika">
+
+    <h2>Will you be my Valentine? 💌</h2>
+
+    <div class="buttons">
+      <button id="yes" onclick="yesClicked()">Yes 💖</button>
+      <button id="no">No 😈</button>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+
+    noBtn.addEventListener("mouseenter", () => {
+      const x = Math.random() * 260;
+      const y = Math.random() * 70;
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    });
+
+    function yesClicked() {
+      document.body.innerHTML = `
+        <div style="
+          display:flex;
+          flex-direction:column;
+          justify-content:center;
+          align-items:center;
+          height:100vh;
+          background:#ffb6c1;
+          font-family:'Comic Sans MS', cursive;
+          text-align:center;
+          padding:20px;
+        ">
+          <h1 style="color:#ff4d6d;">SHE SAID YES 💖🥑</h1>
+
+          <p style="font-size:22px; color:#444; margin-bottom:20px;">
+            My Valentine. My person. My Hello Kitty 🐱🎀  
+            <br><br>
+            I love you forever, Dristhika ❤️
+          </p>
+
+          <!-- Picture of BOTH of you -->
+          <img 
+            src="us-photo.jpg" 
+            alt="Us together"
+            style="
+              width:240px;
+              height:240px;
+              border-radius:30px;
+              object-fit:cover;
+              border:6px solid #ff4d6d;
+              box-shadow:0 10px 25px rgba(0,0,0,0.2);
+            "
+          >
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
